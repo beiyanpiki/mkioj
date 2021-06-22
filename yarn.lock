@@ -399,6 +399,26 @@
     "@typescript-eslint/types" "4.28.0"
     eslint-visitor-keys "^2.0.0"
 
+"@vicons/fa@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.nlark.com/@vicons/fa/download/@vicons/fa-0.10.0.tgz#d91d5ca7cecbc7ca25e22f38c6b8340063826e32"
+  integrity sha1-2R1cp87Lx8ol4i84xrg0AGOCbjI=
+
+"@vicons/fluent@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.nlark.com/@vicons/fluent/download/@vicons/fluent-0.10.0.tgz#b9967841bd8727e9297b17d9e414cd3e2454ae25"
+  integrity sha1-uZZ4Qb2HJ+kpexfZ5BTNPiRUriU=
+
+"@vicons/ionicons5@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.nlark.com/@vicons/ionicons5/download/@vicons/ionicons5-0.10.0.tgz#94641a71850d9e251f1059b67da4c19326bce962"
+  integrity sha1-lGQacYUNniUfEFm2faTBkya86WI=
+
+"@vicons/material@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.nlark.com/@vicons/material/download/@vicons/material-0.10.0.tgz#1213a111f729476ac053f883155b69c2d5262f48"
+  integrity sha1-EhOhEfcpR2rAU/iDFVtpwtUmL0g=
+
 "@vitejs/plugin-vue@^1.2.3":
   version "1.2.3"
   resolved "https://registry.nlark.com/@vitejs/plugin-vue/download/@vitejs/plugin-vue-1.2.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vitejs%2Fplugin-vue%2Fdownload%2F%40vitejs%2Fplugin-vue-1.2.3.tgz"

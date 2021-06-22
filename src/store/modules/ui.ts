@@ -4,7 +4,6 @@ import { setConfig } from '@/util/localStorage'
 
 export interface IUiState {
 	theme: 'light' | 'dark'
-	isMobile: boolean
 	menuKey: string
 	lang: 'enUS' | 'zhCN'
 }
@@ -13,7 +12,6 @@ export const ui: Module<IUiState, IRootState> = {
 	namespaced: true,
 	state: {
 		theme: 'light',
-		isMobile: false,
 		menuKey: '/home',
 		lang: 'enUS',
 	},
@@ -35,9 +33,6 @@ export const ui: Module<IUiState, IRootState> = {
 		switchLang(state) {
 			state.lang = state.lang === 'enUS' ? 'zhCN' : 'enUS'
 			setConfig({ theme: state.theme, lang: state.lang })
-		},
-		switchMobile(state, isMobile) {
-			state.isMobile = isMobile
 		},
 		changeMenuKey(state, key) {
 			state.menuKey = key
