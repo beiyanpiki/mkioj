@@ -27,7 +27,6 @@
 <script lang="ts">
 	import { defineComponent } from 'vue'
 	import { NForm, NFormItemRow, NInput, NButton } from 'naive-ui'
-	import { pushRoute } from '@/router'
 
 	export default defineComponent({
 		components: {
@@ -35,9 +34,6 @@
 			NFormItemRow,
 			NInput,
 			NButton,
-		},
-		setup() {
-			return { pushRoute }
 		},
 	})
 </script>

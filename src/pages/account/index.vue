@@ -1,11 +1,6 @@
 <template>
 	<div style="display: flex; justify-content: center">
-		<NCard
-			:style="{
-				width: !isMobile ? '500px' : '300px',
-				'margin-top': !isMobile ? '200px' : '100px',
-			}"
-		>
+		<NCard style="width: 500px; margin-top: 200px">
 			<NTabs
 				default-value="signin"
 				size="large"

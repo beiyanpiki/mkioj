@@ -21,7 +21,7 @@
 <script lang="ts">
 	import { defineComponent } from 'vue'
 	import { NForm, NFormItemRow, NInput, NButton, NText } from 'naive-ui'
-	import { pushRoute } from '@/router'
+	import { useRoute } from 'vue-router'
 
 	export default defineComponent({
 		components: {
@@ -32,7 +32,11 @@
 			NText,
 		},
 		setup() {
-			return { pushRoute }
+			const router = useRoute()
+
+			return {
+				pushRoute: router.push,
+			}
 		},
 	})
 </script>
