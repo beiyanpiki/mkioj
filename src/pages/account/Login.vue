@@ -10,7 +10,7 @@
 		</NForm>
 		<NButton type="primary" block>Login</NButton>
 		<NText tag="div" style="margin-top: 12px; text-align: center"
-			>Forgot your passowrd?
+			>Forgot your password?
 			<NButton text type="primary" @click="pushRoute('/recovery')">
 				Recovery
 			</NButton>
@@ -21,7 +21,7 @@
 <script lang="ts">
 	import { defineComponent } from 'vue'
 	import { NForm, NFormItemRow, NInput, NButton, NText } from 'naive-ui'
-	import { useRoute } from 'vue-router'
+	import { useRouter } from 'vue-router'
 
 	export default defineComponent({
 		components: {
@@ -32,7 +32,7 @@
 			NText,
 		},
 		setup() {
-			const router = useRoute()
+			const router = useRouter()
 
 			return {
 				pushRoute: router.push,
