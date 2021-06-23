@@ -1,139 +1,116 @@
 <template>
 	<div>
-		<Markdown :text="mockText" />
+		<NGrid responsive="screen" cols="12" x-gap="24" y-gap="12">
+			<NGridItem :span="isMobile ? 12 : 8">
+				<NSpace vertical>
+					<NH1 style="margin-bottom: 4px">Welcome to MKI OJ</NH1>
+					<NDivider />
+					<TopicBlog
+						:id="1"
+						title="Hello, world!"
+						username="BeiyanPiki"
+						avatar="https://mki.moe/usr/uploads/2021/05/3614659291.png"
+						:createdTime="1624444369"
+						:content="mockText"
+						:vote="23"
+						:comment="1"
+						:loading="loading"
+					/>
+					<NSkeleton
+						text
+						height="25px"
+						style="width: 40%; margin-top: 8px"
+						v-if="loading"
+					/>
+					<NPagination
+						:page="page"
+						:page-count="2"
+						show-quick-jumper
+						v-else
+					/>
+				</NSpace>
+			</NGridItem>
+			<NGridItem :span="isMobile ? 12 : 4">
+				<NSpace vertical>
+					<Notification :content="notifyText" :loading="loading" />
+					<UserInformation
+						@click="onLoginClick"
+						:isLogin="isLogin"
+						:user="{
+							username: 'BeiyanPiki',
+							avatar: 'https://www.gravatar.com/avatar/e1ccabc233c966800949b364cfcbe77b?s=80&d=identicon',
+							tag: 'Master',
+							rating: { value: 2562, diff: 15 },
+							rank: { value: 23, diff: -3 },
+							prevStanding: { self: 20, all: 15302 },
+						}"
+					/>
+				</NSpace>
+			</NGridItem>
+		</NGrid>
 	</div>
 </template>
 
 <script lang="ts">
-	import { defineComponent } from 'vue'
-	import Markdown from '@/component/Markdown/Markdown.vue'
+	import { defineComponent, computed, ref, onMounted } from 'vue'
+	import {
+		NGrid,
+		NGridItem,
+		NDivider,
+		NPagination,
+		NSkeleton,
+		NSpace,
+		NH1,
+	} from 'naive-ui'
+
+	import { mockText } from './test'
+	import { useStore } from '@/store'
+	import TopicBlog from './TopicBlog.vue'
+	import Notification from './Notification.vue'
+	import UserInformation from './UserInformation.vue'
 
 	export default defineComponent({
-		components: { Markdown },
+		components: {
+			NGrid,
+			NGridItem,
+			NDivider,
+			NPagination,
+			NSkeleton,
+			NSpace,
+			NH1,
+
+			TopicBlog,
+			Notification,
+			UserInformation,
+		},
 		setup() {
-			const mockText = `
-[toc]
+			const store = useStore()
+			const isMobile = computed(() => store.state.ui.isMobile)
 
-# This is markdown test text
+			const loading = ref(true)
+			const page = ref<number>(1)
+			onMounted(() => {
+				setTimeout(() => {
+					loading.value = false
+				}, 2000)
+			})
 
-> Welcome to the <b>demo</b> Feel free to type anything in the textarea!
-> > *Psst, enable the \`html\` option!* :P
+			const notifyText = `If you have any issue to visit MKi OJ, please contact admin to solve problem.`
 
-https://mki.moe
+			const isLogin = ref(false)
+			const onLoginClick = () => {
+				isLogin.value = ture
+			}
 
-## This is a h2 tag
-
-### This is a h3 tag
-
-#### This is a h^4^ tag.
-
-\`typographer\` enable
-
-(c) (C) (r) (R) (tm) (TM) (p) (P) +-
-
----
-
-## Basic stuff
-
-## Lists
-
-Sometimes you want numbered lists:
-
-1. One
-2. Two
-3. Three
-
-Sometimes you want bullet points:
-
-* Start a line with a star
-* Profit!
-
-Alternatively,
-
-- Dashes work just as well
-- And if you have sub points, put two spaces before the dash or star:
-  - Like this
-  - And this
-
-## Blockquotes
-
-As Abraham Lincoln once said:
-
-> vue3-markdown-it is pretty amazing!
-
-## Tables
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-
----
-
-# Ok, plugin showcase time!
-
-## markdown-it-abbr
-
-*[HTML]: Hyper Text Markup Language
-*[W3C]:  World Wide Web Consortium
-The HTML specification
-is maintained by the W3C.
-
-## markdown-it-anchor
-
-Hard to display this, but if you view the source, you can see that all headings have an id generated from this plugin!
-
-## [markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji)
-
-:O :) :sparkles: 8-)
-
-## [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote)
-
-Here is a footnote reference,[^1] and another.[^longnote]
-
-## [markdown-it-ins](https://github.com/markdown-it/markdown-it-ins)
-
-++this is inserted++
-
-## [markdown-it-mark](https://github.com/markdown-it/markdown-it-mark)
-
-==Oh hi, Mark.==
-
-## [markdown-it-sub](https://github.com/markdown-it/markdown-it-sub)
-
-C~7~H~14~O~2~
-
-## [markdown-it-sup](https://github.com/markdown-it/markdown-it-sup)
-
-Friday the 13^th^
-
-## [markdown-it-task-lists](https://github.com/revin/markdown-it-task-lists)
-
-- [ ] Homework
-- [x] Procrastinating
-
-[^1]: Here is the footnote.
-
-[^longnote]: Here's one with multiple blocks.
-
-# Highlight.js
-
-\`\`\`py
-def say_hello():
-	print('Hello Naive UI')
-\`\`\`
-
-\`\`\`cpp
-int main () {
-  std::cout << "Hello Naive UI";
-  return 0;
-}
-\`\`\`
-
-
-
----
-`
-			return { mockText }
+			return {
+				mockText,
+				isMobile,
+				loading,
+				page,
+				notifyText,
+				isLogin,
+				onLoginClick,
+			}
 		},
 	})
 </script>
