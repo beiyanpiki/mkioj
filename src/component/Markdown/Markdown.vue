@@ -3,13 +3,11 @@
 		<NConfigProvider :theme="theme === 'light' ? null : darkTheme">
 			<NElement
 				tag="div"
-				class="markdown-body n-code"
+				class="markdown-body"
 				style="padding: 0 12px"
 				v-html="output"
 			/>
 		</NConfigProvider>
-
-		{{ output }}
 	</div>
 </template>
 
