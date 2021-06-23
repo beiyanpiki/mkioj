@@ -36,16 +36,15 @@
 				<NSpace vertical>
 					<Notification :content="notifyText" :loading="loading" />
 					<UserInformation
-						@click="onLoginClick"
 						:loading="loading"
 						:isLogin="isLogin"
 						:user="{
 							username: 'BeiyanPiki',
 							avatar: 'https://www.gravatar.com/avatar/e1ccabc233c966800949b364cfcbe77b?s=80&d=identicon',
 							tag: 'master',
-							rating: { value: 2562, diff: 15 },
-							rank: { value: 23, diff: -3 },
-							prevStanding: { self: 20, all: 15302 },
+							rating: { exist: true, value: 2562, diff: 15 },
+							rank: { exist: true, value: 23, diff: -3 },
+							prevStanding: { exist: true, self: 20, all: 15302 },
 						}"
 					/>
 					<Contest
@@ -133,9 +132,6 @@
 			const notifyText = mockNotifyText
 
 			const isLogin = ref(true)
-			const onLoginClick = () => {
-				isLogin.value = ture
-			}
 
 			return {
 				t,
@@ -145,7 +141,6 @@
 				page,
 				notifyText,
 				isLogin,
-				onLoginClick,
 			}
 		},
 	})

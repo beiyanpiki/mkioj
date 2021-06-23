@@ -86,9 +86,9 @@
 				<NGridItem>
 					<NStatistic
 						:label="t('home.userRating')"
-						:value="user.rating ? user.rating.value : '-'"
+						:value="user.rating.exist ? user.rating.value : '-'"
 					>
-						<template #suffix v-if="user.rating">
+						<template #suffix v-if="user.rating.exist">
 							<NText
 								style="font-size: 14px"
 								:type="
@@ -118,9 +118,9 @@
 				<NGridItem>
 					<NStatistic
 						:label="t('home.userRank')"
-						:value="user.rank ? user.rank.value : '-'"
+						:value="user.rank.exist ? user.rank.value : '-'"
 					>
-						<template #suffix v-if="user.rank">
+						<template #suffix v-if="user.rank.exist">
 							<NText
 								style="font-size: 14px"
 								:type="
@@ -151,7 +151,7 @@
 					<NStatistic
 						:label="t('home.userPrevStanding')"
 						:value="
-							user.prevStanding
+							user.prevStanding.exist
 								? `${user.prevStanding.self}/${user.prevStanding.all}`
 								: '-'
 						"
@@ -195,9 +195,14 @@
 					username: string
 					avatar: string
 					tag: string
-					rating?: { value: number; diff: number }
-					rank?: { value: number; diff: number }
-					prevStanding?: { self: number; all: number }
+					rating: { exist: boolean; value: number; diff: number }
+					rank: {
+						exist: boolean
+						exist: boolean
+						value: number
+						diff: number
+					}
+					prevStanding: { exist: boolean; self: number; all: number }
 				}>,
 				default: () => ({
 					username: '',

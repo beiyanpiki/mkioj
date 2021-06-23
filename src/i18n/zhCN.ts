@@ -32,7 +32,7 @@ export default {
 		notification: '公告',
 		comments: '{COMMENT_COUNT} 条评论 ',
 		loginToViewStat: '登录以查看你的数据',
-		userStatisticDescription: '{USERNAME}的数据',
+		userStatisticDescription: '{USERNAME} 的数据',
 		userRating: '分数',
 		userRank: '排名',
 		userPrevStanding: '上场排位',

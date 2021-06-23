@@ -18,9 +18,9 @@
 			const startCountDown = () => {
 				ticker = setInterval(() => {
 					remain.value -= 1
-					if (remain <= 0) {
+					if (remain.value <= 0) {
 						remain.value = 0
-						clearInterval(ticker)
+						clearInterval(Number(ticker))
 					}
 				}, 1000)
 			}

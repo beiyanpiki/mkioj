@@ -28,7 +28,7 @@
 				</NH3>
 				<NH4 style="text-align: center">
 					<CountDown
-						:start="Math.round(new Date() / 1000)"
+						:start="Math.round(Number(new Date()) / 1000)"
 						:end="item.endTime"
 					/>
 				</NH4>
@@ -63,7 +63,7 @@
 				</NH3>
 				<NH4 style="text-align: center">
 					<CountDown
-						:start="Math.round(new Date() / 1000)"
+						:start="Math.round(Number(new Date()) / 1000)"
 						:end="item.startTime"
 					/>
 				</NH4>
