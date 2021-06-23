@@ -17,7 +17,6 @@
 
 			const startCountDown = () => {
 				ticker = setInterval(() => {
-					console.log(remain.value)
 					remain.value -= 1
 					if (remain <= 0) {
 						remain.value = 0

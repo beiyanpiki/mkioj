@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, computed } from 'vue'
-	import { MenuOption, NMenu, useLoadingBar } from 'naive-ui'
+	import { defineComponent, computed, ref, watch, onMounted } from 'vue'
+	import { MenuOption, NMenu } from 'naive-ui'
 	import {
 		HomeOutline as HomeIcon,
 		CodeSlashOutline as ContestIcon,
@@ -26,79 +26,88 @@
 	import { useRouter } from 'vue-router'
 	import { useStore } from '@/store'
 	import { renderIcon } from '@/util/render'
-
-	export const menuOptions = [
-		{
-			label: 'Home',
-			key: '/home',
-			icon: renderIcon(HomeIcon),
-		},
-		{
-			label: 'Contest',
-			key: '/contest',
-			icon: renderIcon(ContestIcon),
-		},
-		{
-			label: 'Problemset',
-			key: '/problem',
-			icon: renderIcon(ProblemIcon),
-		},
-		{
-			label: 'Rank',
-			key: '/rank',
-			icon: renderIcon(RankIcon),
-		},
-		{
-			label: 'Status',
-			key: '/status',
-			icon: renderIcon(StatusIcon),
-		},
-		{
-			label: 'Team',
-			key: '/team',
-			icon: renderIcon(TeamIcon),
-		},
-		{
-			label: 'Calendar',
-			key: '/calendar',
-			icon: renderIcon(CalendarIcon),
-		},
-		{
-			label: 'Help',
-			key: '/help',
-			icon: renderIcon(HelpIcon),
-		},
-		{
-			label: 'Account',
-			key: '/account',
-			icon: renderIcon(UserIcon),
-		},
-		{
-			label: 'Test',
-			key: '/test',
-			icon: renderIcon(TestIcon),
-		},
-	]
+	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
 		components: {
 			NMenu,
 		},
 		setup() {
-			const router = useRouter()
 			const store = useStore()
 			const menuKey = computed(() => store.state.ui.menuKey)
-			const loadingBar = useLoadingBar()
+			const lang = computed(() => store.state.ui.lang)
+			const router = useRouter()
+			const { t } = useI18n()
 
-			router.beforeEach((to, from) => {
-				loadingBar?.start()
-			})
-
-			router.afterEach((to, from) => {
-				if (to.meta.key) {
-					store.commit('ui/changeMenuKey', to.meta.key)
+			const menuOptions = ref([
+				{
+					label: t('sideMenu.home', {}),
+					key: 'home',
+					icon: renderIcon(HomeIcon),
+				},
+				{
+					label: 'Contest',
+					key: 'contest',
+					icon: renderIcon(ContestIcon),
+				},
+				{
+					label: 'Problemset',
+					key: 'problemset',
+					icon: renderIcon(ProblemIcon),
+				},
+				{
+					label: 'Rank',
+					key: 'rank',
+					icon: renderIcon(RankIcon),
+				},
+				{
+					label: 'Status',
+					key: 'status',
+					icon: renderIcon(StatusIcon),
+				},
+				{
+					label: 'Team',
+					key: 'team',
+					icon: renderIcon(TeamIcon),
+				},
+				{
+					label: 'Calendar',
+					key: 'calendar',
+					icon: renderIcon(CalendarIcon),
+				},
+				{
+					label: 'Help',
+					key: 'help',
+					icon: renderIcon(HelpIcon),
+				},
+				{
+					label: 'Account',
+					key: 'account',
+					icon: renderIcon(UserIcon),
+				},
+				{
+					label: 'Test',
+					key: 'test',
+					icon: renderIcon(TestIcon),
+				},
+			])
+			const translateMenuOption = () => {
+				for (let i = 0; i < menuOptions.value.length; i++) {
+					menuOptions.value[i].label = t(
+						`sideMenu.${menuOptions.value[i].key}`,
+						{},
+					)
 				}
-				loadingBar?.finish()
+			}
+			// Watch language, when language change, switch menuOptions
+			watch(
+				() => lang.value,
+				() => {
+					translateMenuOption()
+				},
+			)
+			onMounted(() => {
+				translateMenuOption()
 			})
 
 			const handleUpdateValue = (key: string, _: MenuOption) => {
@@ -109,6 +118,7 @@
 				menuOptions,
 				menuKey,
 				handleUpdateValue,
+				lang,
 			}
 		},
 	})

@@ -42,14 +42,16 @@
 							<CommentIcon />
 						</NIcon>
 						<NText depth="3" style="margin-left: 4px"
-							>{{ comment }} Comment
+							>{{
+								t('home.comments', { COMMENT_COUNT: comment })
+							}}
 						</NText>
 					</div>
-					<NSkeleton text style="width: 10 %" v-if="loading" />
+					<NSkeleton text style="width: 10%" v-if="loading" />
 					<div style="display: flex; align-items: center" v-else>
 						<NButton
 							size="tiny"
-							style="margin-right: 4px"
+							style="margin-right: 12px"
 							type="success"
 							ghost
 						>
@@ -62,7 +64,7 @@
 						<NText type="success" strong>{{ vote }}</NText>
 						<NButton
 							size="tiny"
-							style="margin-left: 4px"
+							style="margin-left: 12px"
 							type="error"
 							ghost
 						>
@@ -99,6 +101,7 @@
 	import Markdown from '@/component/Markdown/Markdown.vue'
 
 	import { useRouter } from 'vue-router'
+	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
 		components: {
@@ -135,8 +138,10 @@
 		},
 		setup() {
 			const router = useRouter()
+			const { t } = useI18n()
 			return {
 				pushRoute: router.push,
+				t,
 			}
 		},
 	})

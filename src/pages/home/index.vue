@@ -3,7 +3,9 @@
 		<NGrid responsive="screen" cols="12" x-gap="24" y-gap="12">
 			<NGridItem :span="isMobile ? 12 : 8">
 				<NSpace vertical>
-					<NH1 style="margin-bottom: 4px">Welcome to MKI OJ</NH1>
+					<NH1 style="margin-bottom: 4px"
+						>{{ t('home.welcome', { SITE_NAME: 'Mki OJ' }) }}
+					</NH1>
 					<NDivider />
 					<TopicBlog
 						:id="1"
@@ -40,7 +42,7 @@
 						:user="{
 							username: 'BeiyanPiki',
 							avatar: 'https://www.gravatar.com/avatar/e1ccabc233c966800949b364cfcbe77b?s=80&d=identicon',
-							tag: 'Master',
+							tag: 'master',
 							rating: { value: 2562, diff: 15 },
 							rank: { value: 23, diff: -3 },
 							prevStanding: { self: 20, all: 15302 },
@@ -97,6 +99,7 @@
 	import Notification from './Notification.vue'
 	import UserInformation from './UserInformation.vue'
 	import Contest from './Contest.vue'
+	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
 		components: {
@@ -115,10 +118,12 @@
 		},
 		setup() {
 			const store = useStore()
-			const isMobile = computed(() => store.state.ui.isMobile)
+			const { t } = useI18n()
 
+			const isMobile = computed(() => store.state.ui.isMobile)
 			const loading = ref(true)
 			const page = ref<number>(1)
+
 			onMounted(() => {
 				setTimeout(() => {
 					loading.value = false
@@ -127,12 +132,13 @@
 
 			const notifyText = mockNotifyText
 
-			const isLogin = ref(false)
+			const isLogin = ref(true)
 			const onLoginClick = () => {
 				isLogin.value = ture
 			}
 
 			return {
+				t,
 				mockText: mockBlogText,
 				isMobile,
 				loading,

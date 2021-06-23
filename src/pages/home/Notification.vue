@@ -8,7 +8,7 @@
 		>
 			<template #header>
 				<NSkeleton v-if="loading" width="30%" />
-				<NText strong v-else>Notification</NText>
+				<NText strong v-else>{{ t('home.notification') }}</NText>
 			</template>
 			<template v-if="loading">
 				<NSkeleton text :repeat="3" />
@@ -24,6 +24,7 @@
 	import { defineComponent } from 'vue'
 	import { NText, NCard, NSkeleton } from 'naive-ui'
 	import Markdown from '@/component/Markdown/Markdown.vue'
+	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
 		props: {
@@ -31,5 +32,9 @@
 			loading: { type: Boolean, default: true, required: true },
 		},
 		components: { Markdown, NText, NCard, NSkeleton },
+		setup() {
+			const { t } = useI18n()
+			return { t }
+		},
 	})
 </script>

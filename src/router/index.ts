@@ -12,6 +12,7 @@ export const routes: Array<RouteRecordRaw> = [
 		meta: {
 			title: 'Home',
 			keepAlive: true,
+			key: 'home',
 		},
 	},
 	{
@@ -20,7 +21,7 @@ export const routes: Array<RouteRecordRaw> = [
 		meta: {
 			title: 'Account',
 			keepAlive: true,
-			key: '/account',
+			key: 'account',
 		},
 		component: () => import('@/pages/account/index.vue'),
 	},
@@ -30,7 +31,7 @@ export const routes: Array<RouteRecordRaw> = [
 		meta: {
 			title: 'Recovery',
 			keepAlive: true,
-			key: '/account',
+			key: 'account',
 		},
 		component: () => import('@/pages/recovery/index.vue'),
 	},

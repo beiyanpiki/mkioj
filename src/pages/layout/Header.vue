@@ -21,7 +21,9 @@
 				<NButton
 					style="margin-left: 16px"
 					@click="onThemeSwitchButtonClick"
-					>{{ theme === 'light' ? 'Dark Mode' : 'Light Mode' }}
+					>{{
+						theme === 'light' ? t('ui.lightMode') : t('ui.darkMode')
+					}}
 				</NButton>
 				<NButton
 					style="margin-left: 16px"
@@ -29,7 +31,7 @@
 					>{{ lang === 'zhCN' ? '中文' : 'English' }}
 				</NButton>
 				<NButton style="margin-left: 16px" @click="onAccountBtnClick"
-					>Account
+					>{{ t('common.account') }}
 				</NButton>
 			</div>
 		</div>
@@ -40,8 +42,8 @@
 	import { computed, defineComponent } from 'vue'
 	import { NInput, NButton, NH3, NText } from 'naive-ui'
 	import { useStore } from '@/store'
-	import { menuOptions } from './SideMenu.vue'
 	import { useRouter } from 'vue-router'
+	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
 		components: {
@@ -53,14 +55,16 @@
 		setup() {
 			const store = useStore()
 			const router = useRouter()
-
 			const theme = computed(() => store.state.ui.theme)
 			const lang = computed(() => store.state.ui.lang)
+			const { locale, t } = useI18n({ useScope: 'global' })
+
 			const onThemeSwitchButtonClick = () => {
 				store.commit('ui/switchTheme')
 			}
 			const onLangSwitchButtonClick = () => {
 				store.commit('ui/switchLang')
+				locale.value = lang.value
 			}
 			const onAccountBtnClick = () => {
 				router.push('/account')
@@ -69,10 +73,10 @@
 			return {
 				theme,
 				lang,
-				menuOptions,
 				onThemeSwitchButtonClick,
 				onLangSwitchButtonClick,
 				onAccountBtnClick,
+				t,
 			}
 		},
 	})

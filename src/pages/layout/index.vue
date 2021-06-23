@@ -44,6 +44,7 @@
 		NLayoutSider,
 		NLayoutContent,
 		NLayoutFooter,
+		useLoadingBar,
 	} from 'naive-ui'
 	import { defineComponent, onMounted } from 'vue'
 
@@ -51,6 +52,7 @@
 	import SideMenu from './SideMenu.vue'
 	import Footer from './Footer.vue'
 	import { useStore } from '@/store'
+	import { useRouter } from 'vue-router'
 
 	export default defineComponent({
 		components: {
@@ -66,6 +68,20 @@
 		},
 		setup() {
 			const store = useStore()
+			const router = useRouter()
+			const loadingBar = useLoadingBar()
+
+			router.beforeEach((to, from) => {
+				loadingBar?.start()
+			})
+
+			router.afterEach((to, from) => {
+				if (to.meta.key) {
+					store.commit('ui/changeMenuKey', to.meta.key)
+				}
+				loadingBar?.finish()
+			})
+
 			onMounted(() => {
 				store.commit(
 					'ui/switchMobile',

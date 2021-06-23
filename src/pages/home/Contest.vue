@@ -8,11 +8,11 @@
 			}"
 		>
 			<template #header>
-				<NText strong>Ongoing Contest</NText>
+				<NText strong>{{ t('home.ongoingContest') }}</NText>
 			</template>
 			<template #header-extra>
 				<NButton text type="primary" @click="pushRoute('/contest')"
-					>More
+					>{{ t('common.more') }}
 				</NButton>
 			</template>
 			<div v-for="(item, index) in ongoing" :key="index">
@@ -43,11 +43,11 @@
 			}"
 		>
 			<template #header>
-				<NText strong>Upcoming Contest</NText>
+				<NText strong>{{ t('home.upcomingContest') }}</NText>
 			</template>
 			<template #header-extra>
 				<NButton text type="primary" @click="pushRoute('/contest')"
-					>More
+					>{{ t('common.more') }}
 				</NButton>
 			</template>
 			<div v-for="(item, index) in upcoming" :key="index">
@@ -78,6 +78,7 @@
 	import { NCard, NText, NButton, NH3, NH4, NDivider } from 'naive-ui'
 	import { useRouter } from 'vue-router'
 	import CountDown from '@/component/CountDown/CountDown.vue'
+	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
 		props: {
@@ -114,8 +115,10 @@
 		},
 		setup() {
 			const router = useRouter()
+			const { t } = useI18n()
 			return {
 				pushRoute: router.push,
+				t,
 			}
 		},
 	})

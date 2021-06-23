@@ -45,8 +45,8 @@
 		>
 			<NResult
 				status="info"
-				title="Login"
-				description="Login to view your statistic"
+				:title="t('common.login')"
+				:description="t('home.loginToViewStat')"
 				size="small"
 			/>
 		</NCard>
@@ -64,24 +64,28 @@
 				<div style="display: flex; align-items: center">
 					<NAvatar circle :size="20" :src="user.avatar" />
 					<NText style="margin-left: 8px"
-						>{{ user.username }}'s Statistic
+						>{{
+							t('home.userStatisticDescription', {
+								USERNAME: user.username,
+							})
+						}}
 					</NText>
 					<NTag type="error" style="margin-left: 8px"
-						>{{ user.tag }}
+						>{{ t(`usertag.${user.tag}`) }}
 					</NTag>
 				</div>
 			</template>
 
 			<template #header-extra>
 				<NButton text type="primary" @click="pushRoute('/account')"
-					>Detail
+					>{{ t('common.detail') }}
 				</NButton>
 			</template>
 
 			<NGrid :cols="3">
 				<NGridItem>
 					<NStatistic
-						label="Rating"
+						:label="t('home.userRating')"
 						:value="user.rating ? user.rating.value : '-'"
 					>
 						<template #suffix v-if="user.rating">
@@ -113,17 +117,7 @@
 				</NGridItem>
 				<NGridItem>
 					<NStatistic
-						label="Prev. Standing"
-						:value="
-							user.prevStanding
-								? `${user.prevStanding.self}/${user.prevStanding.all}`
-								: '-'
-						"
-					/>
-				</NGridItem>
-				<NGridItem>
-					<NStatistic
-						label="Rank"
+						:label="t('home.userRank')"
 						:value="user.rank ? user.rank.value : '-'"
 					>
 						<template #suffix v-if="user.rank">
@@ -153,6 +147,16 @@
 						</template>
 					</NStatistic>
 				</NGridItem>
+				<NGridItem>
+					<NStatistic
+						:label="t('home.userPrevStanding')"
+						:value="
+							user.prevStanding
+								? `${user.prevStanding.self}/${user.prevStanding.all}`
+								: '-'
+						"
+					/>
+				</NGridItem>
 			</NGrid>
 		</NCard>
 	</div>
@@ -180,6 +184,7 @@
 		Minus as ZeroIcon,
 	} from '@vicons/fa'
 	import { useRouter } from 'vue-router'
+	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
 		props: {
@@ -221,7 +226,9 @@
 		},
 		setup() {
 			const router = useRouter()
+			const { t } = useI18n()
 			return {
+				t,
 				pushRoute: router.push,
 			}
 		},
