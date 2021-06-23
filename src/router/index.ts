@@ -40,3 +40,10 @@ export const router = createRouter({
 	history: createWebHistory(),
 	routes,
 })
+
+router.beforeEach((to, from) => {
+	if (to.meta.title) {
+		const title = `${to.meta.title} | Mki OJ`
+		document.title = title
+	}
+})

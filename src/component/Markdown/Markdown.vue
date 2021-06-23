@@ -1,12 +1,7 @@
 <template>
 	<div>
 		<NConfigProvider :theme="theme === 'light' ? null : darkTheme">
-			<NElement
-				tag="div"
-				class="markdown-body"
-				style="padding: 0 12px"
-				v-html="output"
-			/>
+			<NElement tag="div" class="markdown-body" v-html="output" />
 		</NConfigProvider>
 	</div>
 </template>
@@ -35,7 +30,7 @@
 	import './assets/katex/katex.css'
 
 	export default defineComponent({
-		props: { text: { type: String, default: '' } },
+		props: { text: { type: String, default: '', required: true } },
 		components: { NConfigProvider, NElement },
 		setup({ text }) {
 			const md = markdownIt()

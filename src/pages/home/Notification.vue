@@ -8,27 +8,28 @@
 		>
 			<template #header>
 				<NSkeleton v-if="loading" width="30%" />
-				<div v-else>
-					<NText strong>Notification</NText>
-				</div>
+				<NText strong v-else>Notification</NText>
 			</template>
 			<template v-if="loading">
 				<NSkeleton text :repeat="3" />
 				<NSkeleton text style="width: 60%" />
 			</template>
-			<NText v-else>{{ content }}</NText>
+			<NText v-else>
+				<Markdown :text="content" />
+			</NText>
 		</NCard>
 	</div>
 </template>
 <script lang="ts">
 	import { defineComponent } from 'vue'
 	import { NText, NCard, NSkeleton } from 'naive-ui'
+	import Markdown from '@/component/Markdown/Markdown.vue'
 
 	export default defineComponent({
 		props: {
-			content: { type: String, default: '' },
-			loading: { type: Boolean, default: true },
+			content: { type: String, default: '', required: true },
+			loading: { type: Boolean, default: true, required: true },
 		},
-		components: { NText, NCard, NSkeleton },
+		components: { Markdown, NText, NCard, NSkeleton },
 	})
 </script>

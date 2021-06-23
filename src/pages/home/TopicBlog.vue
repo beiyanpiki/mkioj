@@ -118,19 +118,20 @@
 			Markdown,
 		},
 		props: {
-			id: { type: Number, default: 0 },
-			title: { type: String, default: '' },
-			username: { type: String, default: '' },
+			id: { type: Number, default: 0, required: true },
+			title: { type: String, default: '', required: true },
+			username: { type: String, default: '', required: true },
 			avatar: {
 				type: String,
 				default:
 					'https://www.gravatar.com/avatar/e1ccabc233c966800949b364cfcbe77b?s=80&d=identicon',
+				required: true,
 			},
-			createdTime: { type: Number, default: 0 },
-			content: { type: String, default: '' },
-			vote: { type: Number, default: 0 },
-			comment: { type: Number, default: 0 },
-			loading: { type: Boolean, default: true },
+			createdTime: { type: Number, default: 0, required: true },
+			content: { type: String, default: '', required: true },
+			vote: { type: Number, default: 0, required: true },
+			comment: { type: Number, default: 0, required: true },
+			loading: { type: Boolean, default: true, required: true },
 		},
 		setup() {
 			const router = useRouter()

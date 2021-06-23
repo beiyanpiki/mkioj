@@ -35,6 +35,7 @@
 					<Notification :content="notifyText" :loading="loading" />
 					<UserInformation
 						@click="onLoginClick"
+						:loading="loading"
 						:isLogin="isLogin"
 						:user="{
 							username: 'BeiyanPiki',
@@ -44,6 +45,33 @@
 							rank: { value: 23, diff: -3 },
 							prevStanding: { self: 20, all: 15302 },
 						}"
+					/>
+					<Contest
+						:loading="loading"
+						:ongoing="[
+							{
+								id: 1,
+								name: 'MLeague #1 - Div.1',
+								endTime: 1625068800,
+							},
+							{
+								id: 2,
+								name: 'MLeague #1 - Div.2',
+								endTime: 1625068800,
+							},
+						]"
+						:upcoming="[
+							{
+								id: 1,
+								name: 'MLeague #2 - Div.1',
+								startTime: 1625068800,
+							},
+							{
+								id: 2,
+								name: 'MLeague #2 - Div.2',
+								startTime: 1625068800,
+							},
+						]"
 					/>
 				</NSpace>
 			</NGridItem>
@@ -63,11 +91,12 @@
 		NH1,
 	} from 'naive-ui'
 
-	import { mockText } from './test'
+	import { mockBlogText, mockNotifyText } from './test'
 	import { useStore } from '@/store'
 	import TopicBlog from './TopicBlog.vue'
 	import Notification from './Notification.vue'
 	import UserInformation from './UserInformation.vue'
+	import Contest from './Contest.vue'
 
 	export default defineComponent({
 		components: {
@@ -82,6 +111,7 @@
 			TopicBlog,
 			Notification,
 			UserInformation,
+			Contest,
 		},
 		setup() {
 			const store = useStore()
@@ -95,7 +125,7 @@
 				}, 2000)
 			})
 
-			const notifyText = `If you have any issue to visit MKi OJ, please contact admin to solve problem.`
+			const notifyText = mockNotifyText
 
 			const isLogin = ref(false)
 			const onLoginClick = () => {
@@ -103,7 +133,7 @@
 			}
 
 			return {
-				mockText,
+				mockText: mockBlogText,
 				isMobile,
 				loading,
 				page,

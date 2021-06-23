@@ -1,4 +1,4 @@
-export const mockText = `
+export const mockBlogText = `
 [toc]
 
 # This is markdown test text
@@ -120,3 +120,10 @@ int main () {
 
 ---
 `
+export const mockNotifyText = `If you have any issue to visit MKi OJ, please contact admin to solve problem.
+
+**QQ Group**: 1145141919
+
+**Discord**: [Link](https://mki.moe)
+
+![](https://mki.moe/usr/uploads/2021/06/702587289.png =100x100)`

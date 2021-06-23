@@ -1,15 +1,52 @@
 <template>
 	<div>
+		<!-- Loading -->
+		<NCard
+			v-if="loading"
+			style="margin: 8px 0"
+			:segmented="{
+				content: true,
+				footer: true,
+			}"
+		>
+			<template #header>
+				<div style="display: flex; align-items: center">
+					<NSkeleton style="width: 60%" />
+				</div>
+			</template>
+
+			<NGrid :cols="3">
+				<NGridItem>
+					<NSpace vertical>
+						<NSkeleton width="80%" />
+						<NSkeleton height="40px" width="80%" />
+					</NSpace>
+				</NGridItem>
+				<NGridItem>
+					<NSpace vertical>
+						<NSkeleton width="80%" />
+						<NSkeleton height="40px" width="80%" />
+					</NSpace>
+				</NGridItem>
+				<NGridItem>
+					<NSpace vertical>
+						<NSkeleton width="80%" />
+						<NSkeleton height="40px" width="80%" />
+					</NSpace>
+				</NGridItem>
+			</NGrid>
+		</NCard>
+
 		<!-- Login Required -->
 		<NCard
-			v-if="!isLogin"
+			v-else-if="!isLogin"
 			@click="pushRoute('/account')"
 			style="cursor: pointer; margin: 8px 0"
 		>
 			<NResult
 				status="info"
 				title="Login"
-				description="Login to view user's statistic"
+				description="Login to view your statistic"
 				size="small"
 			/>
 		</NCard>
@@ -133,7 +170,9 @@
 		NGrid,
 		NGridItem,
 		NIcon,
+		NSpace,
 		NStatistic,
+		NSkeleton,
 	} from 'naive-ui'
 	import {
 		AngleUp as IncreaseIcon,
@@ -144,7 +183,8 @@
 
 	export default defineComponent({
 		props: {
-			isLogin: { type: Boolean, default: false },
+			loading: { type: Boolean, defalut: true, required: true },
+			isLogin: { type: Boolean, default: false, required: true },
 			user: {
 				type: Object as PropType<{
 					username: string
@@ -172,6 +212,8 @@
 			NGridItem,
 			NIcon,
 			NStatistic,
+			NSkeleton,
+			NSpace,
 
 			IncreaseIcon,
 			DecreaseIcon,
