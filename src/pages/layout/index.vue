@@ -45,11 +45,19 @@
 		NLayoutContent,
 		NLayoutFooter,
 	} from 'naive-ui'
-	import { defineComponent } from 'vue'
+	import { defineComponent, onMounted } from 'vue'
 
 	import Header from './Header.vue'
 	import SideMenu from './SideMenu.vue'
 	import Footer from './Footer.vue'
+
+	onMounted(() => {
+		store.commit('ui/switchMobile', document.body.clientWidth <= 500)
+		window.onresize = () => {
+			const width = document.body.clientWidth
+			store.commit('ui/switchMobile', width <= 500)
+		}
+	})
 
 	export default defineComponent({
 		components: {

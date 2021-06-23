@@ -6,6 +6,7 @@ export interface IUiState {
 	theme: 'light' | 'dark'
 	menuKey: string
 	lang: 'enUS' | 'zhCN'
+	isMobile: boolean
 }
 
 export const ui: Module<IUiState, IRootState> = {
@@ -14,6 +15,7 @@ export const ui: Module<IUiState, IRootState> = {
 		theme: 'light',
 		menuKey: '/home',
 		lang: 'enUS',
+		isMobile: false,
 	},
 	mutations: {
 		init(
@@ -36,6 +38,9 @@ export const ui: Module<IUiState, IRootState> = {
 		},
 		changeMenuKey(state, key) {
 			state.menuKey = key
+		},
+		switchMobile(state, isMobile) {
+			state.isMobile = isMobile
 		},
 	},
 	actions: {},
