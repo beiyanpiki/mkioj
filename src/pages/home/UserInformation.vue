@@ -198,7 +198,6 @@
 					rating: { exist: boolean; value: number; diff: number }
 					rank: {
 						exist: boolean
-						exist: boolean
 						value: number
 						diff: number
 					}
