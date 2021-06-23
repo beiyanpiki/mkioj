@@ -1,6 +1,6 @@
 import { Module } from 'vuex'
 import { IRootState } from '..'
-import { setConfig } from '@/util/localStorage'
+import { setConfig } from '../../util/localStorage'
 
 export interface IUiState {
 	theme: 'light' | 'dark'

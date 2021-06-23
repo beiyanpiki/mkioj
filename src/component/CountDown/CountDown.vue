@@ -4,7 +4,7 @@
 
 <script lang="ts">
 	import { onMounted, defineComponent, ref } from 'vue'
-	import { formatSecondToHMS } from '@/util/time'
+	import { formatSecondToHMS } from '../../util/time'
 
 	export default defineComponent({
 		props: {

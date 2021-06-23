@@ -51,7 +51,7 @@
 <script lang="ts">
 	import { computed, defineComponent, ref } from 'vue'
 	import { NForm, NFormItemRow, NInput, NButton, NCard } from 'naive-ui'
-	import { useStore } from '@/store'
+	import { useStore } from '../../store'
 
 	export default defineComponent({
 		name: 'Recovery Page',

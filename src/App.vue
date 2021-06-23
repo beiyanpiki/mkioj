@@ -28,9 +28,9 @@
 		dateEnUS,
 	} from 'naive-ui'
 
-	import Layout from '@/pages/layout/index.vue'
-	import { getConfig } from '@/util/localStorage'
-	import { useStore } from '@/store'
+	import Layout from './pages/layout/index.vue'
+	import { getConfig } from './util/localStorage'
+	import { useStore } from './store'
 
 	export default defineComponent({
 		components: {

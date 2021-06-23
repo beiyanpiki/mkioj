@@ -41,7 +41,7 @@
 <script lang="ts">
 	import { computed, defineComponent } from 'vue'
 	import { NInput, NButton, NH3, NText } from 'naive-ui'
-	import { useStore } from '@/store'
+	import { useStore } from '../../store'
 	import { useRouter } from 'vue-router'
 	import { useI18n } from 'vue-i18n'
 

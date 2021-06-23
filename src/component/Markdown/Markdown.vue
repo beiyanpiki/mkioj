@@ -9,7 +9,7 @@
 <script lang="ts">
 	import { defineComponent, computed } from 'vue'
 	import { NConfigProvider, NElement, darkTheme } from 'naive-ui'
-	import { useStore } from '@/store'
+	import { useStore } from '../../store'
 	// markdown-it and plugin
 	import markdownIt from 'markdown-it'
 	import markdownItKatex from '@traptitech/markdown-it-katex'

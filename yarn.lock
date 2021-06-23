@@ -300,6 +300,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@rollup/plugin-alias@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.npm.taobao.org/@rollup/plugin-alias/download/@rollup/plugin-alias-3.1.2.tgz?cache=0&sync_timestamp=1612323424704&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40rollup%2Fplugin-alias%2Fdownload%2F%40rollup%2Fplugin-alias-3.1.2.tgz#c585b05be4a7782d269c69d13def56f44e417772"
+  integrity sha1-xYWwW+SneC0mnGnRPe9W9E5Bd3I=
+  dependencies:
+    slash "^3.0.0"
+
 "@steelydylan/markdown-it-imsize@^1.0.2":
   version "1.0.2"
   resolved "https://registry.nlark.com/@steelydylan/markdown-it-imsize/download/@steelydylan/markdown-it-imsize-1.0.2.tgz#bffec33320601691162e4e903e27eb63d5488b6d"
@@ -421,6 +428,13 @@
   version "4.0.0"
   resolved "https://registry.nlark.com/@types/parse-json/download/@types/parse-json-4.0.0.tgz"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
+
+"@types/resolve@0.0.8":
+  version "0.0.8"
+  resolved "https://registry.nlark.com/@types/resolve/download/@types/resolve-0.0.8.tgz?cache=0&sync_timestamp=1621242543115&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fresolve%2Fdownload%2F%40types%2Fresolve-0.0.8.tgz#f26074d238e02659e323ce1a13d041eee280e194"
+  integrity sha1-8mB00jjgJlnjI84aE9BB7uKA4ZQ=
+  dependencies:
+    "@types/node" "*"
 
 "@types/yargs-parser@*":
   version "20.2.0"
@@ -802,6 +816,11 @@ buffers@~0.1.1:
   version "0.1.1"
   resolved "https://registry.npm.taobao.org/buffers/download/buffers-0.1.1.tgz"
   integrity sha1-skV5w77U1tOWru5tmorn9Ugqt7s=
+
+builtin-modules@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/builtin-modules/download/builtin-modules-3.2.0.tgz#45d5db99e7ee5e6bc4f362e008bf917ab5049887"
+  integrity sha1-RdXbmefuXmvE82LgCL+RerUEmIc=
 
 cachedir@2.2.0:
   version "2.2.0"
@@ -1357,6 +1376,11 @@ estraverse@^5.1.0, estraverse@^5.2.0:
   resolved "https://registry.nlark.com/estraverse/download/estraverse-5.2.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Festraverse%2Fdownload%2Festraverse-5.2.0.tgz"
   integrity sha1-MH30JUfmzHMk088DwVXVzbjFOIA=
 
+estree-walker@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.npm.taobao.org/estree-walker/download/estree-walker-0.6.1.tgz#53049143f40c6eb918b23671d1fe3219f3a1b362"
+  integrity sha1-UwSRQ/QMbrkYsjZx0f4yGfOhs2I=
+
 estree-walker@^2.0.1:
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/estree-walker/download/estree-walker-2.0.2.tgz"
@@ -1856,6 +1880,11 @@ is-glob@^4.0.0, is-glob@^4.0.1:
   dependencies:
     is-extglob "^2.1.1"
 
+is-module@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/is-module/download/is-module-1.0.0.tgz#3258fb69f78c14d5b815d664336b4cffb6441591"
+  integrity sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=
+
 is-number@^7.0.0:
   version "7.0.0"
   resolved "https://registry.npm.taobao.org/is-number/download/is-number-7.0.0.tgz"
@@ -2350,10 +2379,10 @@ mute-stream@0.0.7:
   resolved "https://registry.npm.taobao.org/mute-stream/download/mute-stream-0.0.7.tgz"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-naive-ui@^2.13.0:
-  version "2.13.0"
-  resolved "https://registry.nlark.com/naive-ui/download/naive-ui-2.13.0.tgz#f33ca965b3f807a2f1f04ae18ecf0c25546a843b"
-  integrity sha1-8zypZbP4B6Lx8Erhjs8MJVRqhDs=
+naive-ui@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.nlark.com/naive-ui/download/naive-ui-2.14.0.tgz#59daa990d718ea589f4f590f4cef2d2a50b50ba6"
+  integrity sha1-WdqpkNcY6lifT1kPTO8tKlC1C6Y=
   dependencies:
     "@css-render/plugin-bem" "^0.15.4"
     "@css-render/vue3-ssr" "^0.15.4"
@@ -2772,7 +2801,7 @@ resolve-global@1.0.0, resolve-global@^1.0.0:
   dependencies:
     global-dirs "^0.1.1"
 
-resolve@^1.10.0, resolve@^1.20.0:
+resolve@^1.10.0, resolve@^1.11.1, resolve@^1.20.0:
   version "1.20.0"
   resolved "https://registry.npm.taobao.org/resolve/download/resolve-1.20.0.tgz"
   integrity sha1-YpoBP7P3B1XW8LeTXMHCxTeLGXU=
@@ -2814,6 +2843,24 @@ rimraf@^3.0.2:
   integrity sha1-8aVAK6YiCtUswSgrrBrjqkn9Bho=
   dependencies:
     glob "^7.1.3"
+
+rollup-plugin-node-resolve@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.npm.taobao.org/rollup-plugin-node-resolve/download/rollup-plugin-node-resolve-5.2.0.tgz#730f93d10ed202473b1fb54a5997a7db8c6d8523"
+  integrity sha1-cw+T0Q7SAkc7H7VKWZen24xthSM=
+  dependencies:
+    "@types/resolve" "0.0.8"
+    builtin-modules "^3.1.0"
+    is-module "^1.0.0"
+    resolve "^1.11.1"
+    rollup-pluginutils "^2.8.1"
+
+rollup-pluginutils@^2.8.1:
+  version "2.8.2"
+  resolved "https://registry.npm.taobao.org/rollup-pluginutils/download/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
+  integrity sha1-cvKvB0i1kjZNvTOJ5gDlqURKNR4=
+  dependencies:
+    estree-walker "^0.6.1"
 
 rollup@^2.38.5:
   version "2.52.2"

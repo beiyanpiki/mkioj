@@ -51,7 +51,7 @@
 	import Header from './Header.vue'
 	import SideMenu from './SideMenu.vue'
 	import Footer from './Footer.vue'
-	import { useStore } from '@/store'
+	import { useStore } from '../../store'
 	import { useRouter } from 'vue-router'
 
 	export default defineComponent({

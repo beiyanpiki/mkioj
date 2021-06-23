@@ -23,7 +23,7 @@
 <script lang="ts">
 	import { defineComponent } from 'vue'
 	import { NText, NCard, NSkeleton } from 'naive-ui'
-	import Markdown from '@/component/Markdown/Markdown.vue'
+	import Markdown from '../../component/Markdown/Markdown.vue'
 	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
@@ -31,7 +31,7 @@
 			content: { type: String, default: '', required: true },
 			loading: { type: Boolean, default: true, required: true },
 		},
-		components: { Markdown, NText, NCard, NSkeleton },
+		components: { NText, NCard, NSkeleton, Markdown },
 		setup() {
 			const { t } = useI18n()
 			return { t }

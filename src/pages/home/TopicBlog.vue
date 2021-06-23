@@ -98,7 +98,7 @@
 		ChevronDown as DownVoteIcon,
 		ChatboxEllipsesSharp as CommentIcon,
 	} from '@vicons/ionicons5'
-	import Markdown from '@/component/Markdown/Markdown.vue'
+	import Markdown from '../../component/Markdown/Markdown.vue'
 
 	import { useRouter } from 'vue-router'
 	import { useI18n } from 'vue-i18n'

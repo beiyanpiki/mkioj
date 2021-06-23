@@ -9,8 +9,8 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, computed, ref, watch, onMounted } from 'vue'
-	import { MenuOption, NMenu } from 'naive-ui'
+	import { defineComponent, computed, ref, watch, onMounted, h } from 'vue'
+	import { MenuOption, NIcon, NMenu } from 'naive-ui'
 	import {
 		HomeOutline as HomeIcon,
 		CodeSlashOutline as ContestIcon,
@@ -24,8 +24,7 @@
 	import { AccountCircleOutlined as UserIcon } from '@vicons/material'
 	import { PeopleTeam24Regular as TeamIcon } from '@vicons/fluent'
 	import { useRouter } from 'vue-router'
-	import { useStore } from '@/store'
-	import { renderIcon } from '@/util/render'
+	import { useStore } from '../../store'
 	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
@@ -38,7 +37,14 @@
 			const lang = computed(() => store.state.ui.lang)
 			const router = useRouter()
 			const { t } = useI18n()
-
+			const renderIcon = (
+				icon: any,
+				size: number | undefined = undefined,
+				depth: 1 | 2 | 3 | 4 | 5 | undefined = undefined,
+				color: string | undefined = undefined,
+			) => {
+				return () => h(NIcon, { size }, { default: () => h(icon) })
+			}
 			const menuOptions = ref([
 				{
 					label: t('sideMenu.home', {}),

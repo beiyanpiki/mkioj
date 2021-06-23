@@ -93,11 +93,11 @@
 	} from 'naive-ui'
 
 	import { mockBlogText, mockNotifyText } from './test'
-	import { useStore } from '@/store'
 	import TopicBlog from './TopicBlog.vue'
 	import Notification from './Notification.vue'
 	import UserInformation from './UserInformation.vue'
 	import Contest from './Contest.vue'
+	import { useStore } from '../../store'
 	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({

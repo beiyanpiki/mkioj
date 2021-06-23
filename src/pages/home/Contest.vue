@@ -74,10 +74,9 @@
 
 <script lang="ts">
 	import { defineComponent, PropType } from 'vue'
-
 	import { NCard, NText, NButton, NH3, NH4, NDivider } from 'naive-ui'
+	import CountDown from '../../component/CountDown/CountDown.vue'
 	import { useRouter } from 'vue-router'
-	import CountDown from '@/component/CountDown/CountDown.vue'
 	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
