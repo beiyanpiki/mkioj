@@ -58,6 +58,13 @@ Content in the first column | Content in the second column
 
 # Ok, plugin showcase time!
 
+## math
+
+$a+b=c$
+$$
+\\frac{1}{2} = \\frac{1}{2} = 1
+$$
+
 ## markdown-it-abbr
 
 *[HTML]: Hyper Text Markup Language

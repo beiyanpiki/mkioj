@@ -26,8 +26,8 @@
 	import markdownItTaskLists from 'markdown-it-task-lists'
 	import markdownItSourceMap from 'markdown-it-source-map'
 	import markdownItHighLight from './highlight'
-	import './assets/markdown.css'
-	import './assets/katex/katex.css'
+	import './markdown.css'
+	import 'katex/dist/katex.css'
 
 	export default defineComponent({
 		props: { text: { type: String, default: '', required: true } },
