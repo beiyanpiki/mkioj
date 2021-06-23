@@ -50,14 +50,7 @@
 	import Header from './Header.vue'
 	import SideMenu from './SideMenu.vue'
 	import Footer from './Footer.vue'
-
-	onMounted(() => {
-		store.commit('ui/switchMobile', document.body.clientWidth <= 500)
-		window.onresize = () => {
-			const width = document.body.clientWidth
-			store.commit('ui/switchMobile', width <= 500)
-		}
-	})
+	import { useStore } from '@/store'
 
 	export default defineComponent({
 		components: {
@@ -70,6 +63,19 @@
 			Header,
 			SideMenu,
 			Footer,
+		},
+		setup() {
+			const store = useStore()
+			onMounted(() => {
+				store.commit(
+					'ui/switchMobile',
+					document.body.clientWidth <= 500,
+				)
+				window.onresize = () => {
+					const width = document.body.clientWidth
+					store.commit('ui/switchMobile', width <= 500)
+				}
+			})
 		},
 	})
 </script>
