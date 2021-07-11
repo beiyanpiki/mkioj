@@ -8,8 +8,7 @@
 			}"
 		>
 			<template #header>
-				<NSkeleton v-if="loading" width="60%" />
-				<div v-else>
+				<div>
 					<NText strong> {{ title }}</NText>
 					<NIcon
 						size="12"
@@ -24,15 +23,10 @@
 					</NText>
 				</div>
 			</template>
-			<template v-if="loading">
-				<NSkeleton text :repeat="2" />
-				<NSkeleton text style="width: 60%" />
-			</template>
-			<Markdown :text="content" v-else />
+			<Markdown :text="content" />
 			<template #footer>
 				<div style="display: flex; justify-content: space-between">
-					<NSkeleton text style="width: 60%" v-if="loading" />
-					<div style="display: flex; align-items: center" v-else>
+					<div style="display: flex; align-items: center">
 						<NAvatar circle :size="24" :src="avatar" />
 						<NText depth="3" style="margin-left: 4px"
 							>{{ username }} @
@@ -42,13 +36,10 @@
 							<CommentIcon />
 						</NIcon>
 						<NText depth="3" style="margin-left: 4px"
-							>{{
-								t('home.comments', { COMMENT_COUNT: comment })
-							}}
+							>{{ comment }} comments
 						</NText>
 					</div>
-					<NSkeleton text style="width: 10%" v-if="loading" />
-					<div style="display: flex; align-items: center" v-else>
+					<div style="display: flex; align-items: center">
 						<NButton
 							size="tiny"
 							style="margin-right: 12px"
@@ -83,27 +74,18 @@
 
 <script lang="ts">
 	import { defineComponent } from 'vue'
-	import {
-		NCard,
-		NText,
-		NIcon,
-		NAvatar,
-		NButton,
-		NTime,
-		NSkeleton,
-	} from 'naive-ui'
+	import { NCard, NText, NIcon, NAvatar, NButton, NTime } from 'naive-ui'
 	import { ExternalLinkAlt as LinkIcon } from '@vicons/fa'
 	import {
 		ChevronUp as UpVoteIcon,
 		ChevronDown as DownVoteIcon,
 		ChatboxEllipsesSharp as CommentIcon,
 	} from '@vicons/ionicons5'
-	import Markdown from '../../component/Markdown/Markdown.vue'
-
+	import Markdown from '@/components/Markdown/index.vue'
 	import { useRouter } from 'vue-router'
-	import { useI18n } from 'vue-i18n'
 
 	export default defineComponent({
+		name: 'Home-Article',
 		components: {
 			NCard,
 			NText,
@@ -111,7 +93,6 @@
 			NAvatar,
 			NButton,
 			NTime,
-			NSkeleton,
 
 			LinkIcon,
 			UpVoteIcon,
@@ -134,14 +115,11 @@
 			content: { type: String, default: '', required: true },
 			vote: { type: Number, default: 0, required: true },
 			comment: { type: Number, default: 0, required: true },
-			loading: { type: Boolean, default: true, required: true },
 		},
 		setup() {
 			const router = useRouter()
-			const { t } = useI18n()
 			return {
 				pushRoute: router.push,
-				t,
 			}
 		},
 	})

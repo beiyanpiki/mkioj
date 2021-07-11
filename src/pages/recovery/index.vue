@@ -1,11 +1,6 @@
 <template>
-	<div style="display: flex; justify-content: center">
-		<NCard
-			:style="{
-				width: !isMobile ? '500px' : '300px',
-				'margin-top': !isMobile ? '200px' : '100px',
-			}"
-		>
+	<div style="display: flex; justify-content: center; margin-top: 100px">
+		<NCard style="width: 500px">
 			<NForm>
 				<NFormItemRow label="Email">
 					<NInput placeholder="Email" />
@@ -49,12 +44,11 @@
 </template>
 
 <script lang="ts">
-	import { computed, defineComponent, ref } from 'vue'
+	import { defineComponent, ref } from 'vue'
 	import { NForm, NFormItemRow, NInput, NButton, NCard } from 'naive-ui'
-	import { useStore } from '../../store'
 
 	export default defineComponent({
-		name: 'Recovery Page',
+		name: 'Recovery',
 		components: {
 			NForm,
 			NFormItemRow,
@@ -65,8 +59,6 @@
 		setup() {
 			const loading = ref<boolean>(false)
 			const sendEmailCountDown = ref<number>(0)
-			const store = useStore()
-			const isMobile = computed(() => store.state.ui.isMobile)
 
 			const onRecoveryBtnClick = () => {
 				loading.value = true
@@ -89,7 +81,6 @@
 			return {
 				loading,
 				sendEmailCountDown,
-				isMobile,
 				onRecoveryBtnClick,
 				onSendMailBtnClick,
 			}

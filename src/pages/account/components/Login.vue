@@ -24,6 +24,7 @@
 	import { useRouter } from 'vue-router'
 
 	export default defineComponent({
+		name: 'Account-Login',
 		components: {
 			NForm,
 			NFormItemRow,
