@@ -14,7 +14,7 @@
 						size="12"
 						:depth="5"
 						style="margin-left: 8px; cursor: pointer"
-						@click="pushRoute('/blog?id=1')"
+						@click="routerPush('/blog?id=1')"
 					>
 						<LinkIcon />
 					</NIcon>
@@ -119,7 +119,7 @@
 		setup() {
 			const router = useRouter()
 			return {
-				pushRoute: router.push,
+				routerPush: router.push,
 			}
 		},
 	})

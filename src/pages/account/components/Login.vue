@@ -11,7 +11,7 @@
 		<NButton type="primary" block>Login</NButton>
 		<NText tag="div" style="margin-top: 12px; text-align: center"
 			>Forgot your password?
-			<NButton text type="primary" @click="pushRoute('/recovery')">
+			<NButton text type="primary" @click="routerPush('/recovery')">
 				Recovery
 			</NButton>
 		</NText>
@@ -36,7 +36,7 @@
 			const router = useRouter()
 
 			return {
-				pushRoute: router.push,
+				routerPush: router.push,
 			}
 		},
 	})

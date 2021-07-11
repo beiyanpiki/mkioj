@@ -4,8 +4,6 @@
 			<NGridItem :span="8">
 				<NSpace vertical>
 					<NH1 style="margin-bottom: 4px">Welcome to Mki OJ</NH1>
-					<pre>{{ { height, width, currentBreakpoint } }}</pre>
-
 					<NDivider />
 					<Article
 						:id="1"

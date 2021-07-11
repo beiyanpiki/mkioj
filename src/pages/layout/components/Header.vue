@@ -20,7 +20,7 @@
 			<div style="padding-right: 16px">
 				<NButton
 					style="margin-left: 16px"
-					@click="pushRoute('/account')"
+					@click="routerPush('/account')"
 				>
 					Account
 				</NButton>
@@ -46,7 +46,7 @@
 			const router = useRouter()
 
 			return {
-				pushRoute: router.push,
+				routerPush: router.push,
 			}
 		},
 	})

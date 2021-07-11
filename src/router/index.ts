@@ -16,6 +16,16 @@ export const routes: Array<RouteRecordRaw> = [
 		},
 	},
 	{
+		path: '/contest',
+		name: 'Contest',
+		component: () => import('@/pages/contest/index.vue'),
+		meta: {
+			title: 'Contest',
+			keepAlive: true,
+			key: 'contest',
+		},
+	},
+	{
 		path: '/account',
 		name: 'Account',
 		component: () => import('@/pages/account/index.vue'),
@@ -25,6 +35,7 @@ export const routes: Array<RouteRecordRaw> = [
 			key: 'account',
 		},
 	},
+
 	{
 		path: '/recovery',
 		name: 'Recovery',

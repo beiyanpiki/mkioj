@@ -2,7 +2,7 @@
 	<div>
 		<NCard
 			v-if="!isLogin"
-			@click="pushRoute('/account')"
+			@click="routerPush('/account')"
 			style="cursor: pointer; margin: 8px 0"
 		>
 			<NResult
@@ -32,7 +32,7 @@
 				</div>
 			</template>
 			<template #header-extra>
-				<NButton text type="primary" @click="pushRoute('/account')"
+				<NButton text type="primary" @click="routerPush('/account')"
 					>Detail</NButton
 				>
 			</template>
@@ -169,7 +169,7 @@
 		setup() {
 			const router = useRouter()
 			return {
-				pushRoute: router.push,
+				routerPush: router.push,
 			}
 		},
 	})
