@@ -1,6 +1,6 @@
 <template>
-	<div style="display: flex; justify-content: center">
-		<NCard style="width: 500px; margin-top: 200px">
+	<div style="display: flex; justify-content: center; margin-top: 100px">
+		<NCard style="width: 500px">
 			<NTabs
 				default-value="signin"
 				size="large"
@@ -21,10 +21,11 @@
 	import { NCard, NTabs, NTabPane } from 'naive-ui'
 	import { defineComponent } from 'vue'
 
-	import Login from './Login.vue'
-	import Register from './Register.vue'
+	import Login from './components/Login.vue'
+	import Register from './components/Register.vue'
 
 	export default defineComponent({
+		name: 'Account',
 		components: {
 			NCard,
 			NTabs,

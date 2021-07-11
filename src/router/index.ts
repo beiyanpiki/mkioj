@@ -8,7 +8,7 @@ export const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/home',
 		name: 'Home',
-		component: () => import('../pages/home/index.vue'),
+		component: () => import('@/pages/home/index.vue'),
 		meta: {
 			title: 'Home',
 			keepAlive: true,
@@ -18,22 +18,22 @@ export const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/account',
 		name: 'Account',
+		component: () => import('@/pages/account/index.vue'),
 		meta: {
 			title: 'Account',
 			keepAlive: true,
 			key: 'account',
 		},
-		component: () => import('../pages/account/index.vue'),
 	},
 	{
 		path: '/recovery',
 		name: 'Recovery',
+		component: () => import('@/pages/recovery/index.vue'),
 		meta: {
 			title: 'Recovery',
 			keepAlive: true,
 			key: 'account',
 		},
-		component: () => import('../pages/recovery/index.vue'),
 	},
 ]
 

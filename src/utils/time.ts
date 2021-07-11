@@ -8,3 +8,12 @@ export const formatSecondToHMS = (s: number): string => {
 		second < 10 ? '0' + second : second
 	}`
 }
+
+export const formatSecondToMS = (s: number): string => {
+	const minute = Math.floor(s / 60)
+	s -= minute * 60
+	const second = s
+	return `${minute < 10 ? '0' + minute : minute}:${
+		second < 10 ? '0' + second : second
+	}`
+}

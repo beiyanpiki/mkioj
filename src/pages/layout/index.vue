@@ -38,6 +38,10 @@
 </template>
 
 <script lang="ts">
+	import { defineComponent } from 'vue'
+	import Header from './components/Header.vue'
+	import SideMenu from './components/SideMenu.vue'
+	import Footer from './components/Footer.vue'
 	import {
 		NLayout,
 		NLayoutHeader,
@@ -46,15 +50,11 @@
 		NLayoutFooter,
 		useLoadingBar,
 	} from 'naive-ui'
-	import { defineComponent, onMounted } from 'vue'
-
-	import Header from './Header.vue'
-	import SideMenu from './SideMenu.vue'
-	import Footer from './Footer.vue'
-	import { useStore } from '../../store'
+	import { useStore } from '@/store'
 	import { useRouter } from 'vue-router'
 
 	export default defineComponent({
+		name: 'Layout',
 		components: {
 			NLayout,
 			NLayoutHeader,
@@ -74,23 +74,11 @@
 			router.beforeEach((to, from) => {
 				loadingBar?.start()
 			})
-
 			router.afterEach((to, from) => {
 				if (to.meta.key) {
 					store.commit('ui/changeMenuKey', to.meta.key)
 				}
 				loadingBar?.finish()
-			})
-
-			onMounted(() => {
-				store.commit(
-					'ui/switchMobile',
-					document.body.clientWidth <= 500,
-				)
-				window.onresize = () => {
-					const width = document.body.clientWidth
-					store.commit('ui/switchMobile', width <= 500)
-				}
 			})
 		},
 	})

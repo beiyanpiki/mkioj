@@ -29,6 +29,7 @@
 	import { NForm, NFormItemRow, NInput, NButton } from 'naive-ui'
 
 	export default defineComponent({
+		name: 'Account-Register',
 		components: {
 			NForm,
 			NFormItemRow,

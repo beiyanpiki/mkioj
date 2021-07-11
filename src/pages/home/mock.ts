@@ -1,4 +1,4 @@
-export const mockBlogText = `
+export const text1 = `
 [toc]
 
 # This is markdown test text
@@ -127,7 +127,7 @@ int main () {
 
 ---
 `
-export const mockNotifyText = `If you have any issue to visit MKi OJ, please contact admin to solve problem.
+export const text2 = `If you have any issue to visit MKi OJ, please contact admin to solve problem.
 
 **QQ Group**: 1145141919
 

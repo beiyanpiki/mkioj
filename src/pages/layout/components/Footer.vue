@@ -49,6 +49,7 @@
 	import { NButton } from 'naive-ui'
 
 	export default defineComponent({
+		name: 'Layout-Footer',
 		components: { NButton },
 	})
 </script>
