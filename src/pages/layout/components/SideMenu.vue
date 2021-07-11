@@ -25,7 +25,7 @@
 	import { PeopleTeam24Regular as TeamIcon } from '@vicons/fluent'
 	import { useRouter } from 'vue-router'
 	import { useStore } from '@/store'
-	import { renderIcon } from '@/utils/render'
+	import { renderIcon } from '@/utils'
 
 	const menuOptions = ref([
 		{

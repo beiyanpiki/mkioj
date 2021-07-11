@@ -7,5 +7,5 @@ export const renderIcon = (
 	depth: 1 | 2 | 3 | 4 | 5 | undefined = undefined,
 	color: string | undefined = undefined,
 ) => {
-	return () => h(NIcon, { size }, { default: () => h(icon) })
+	return () => h(NIcon, { size, color }, { default: () => h(icon) })
 }

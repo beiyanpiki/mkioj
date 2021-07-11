@@ -8,7 +8,7 @@
 			}"
 		>
 			<NPageHeader
-				subtitle="Improve your contest rating in our offical contest."
+				subtitle="Improve your contest rating in our official contest."
 				@back="routerBack()"
 			>
 				<!-- Avatar -->
@@ -19,8 +19,10 @@
 						</NIcon>
 					</NAvatar>
 				</template>
+
 				<!-- Title -->
 				<template #title> Contest </template>
+
 				<!-- Header -->
 				<template #header>
 					<NBreadcrumb>
@@ -30,6 +32,9 @@
 						<NBreadcrumbItem>Contest</NBreadcrumbItem>
 					</NBreadcrumb>
 				</template>
+
+				<!-- Content -->
+				<ContestList :data="contestList" />
 			</NPageHeader>
 		</NCard>
 	</div>
@@ -47,6 +52,10 @@
 	} from 'naive-ui'
 	import { useRouter } from 'vue-router'
 	import { CodeSlashOutline as ContestIcon } from '@vicons/ionicons5'
+
+	import ContestList from './components/ContestList.vue'
+	import { data1 } from './mock'
+
 	export default defineComponent({
 		name: 'Contest',
 		components: {
@@ -58,12 +67,16 @@
 			NCard,
 
 			ContestIcon,
+
+			ContestList,
 		},
 		setup() {
 			const router = useRouter()
+			const contestList = data1
 			return {
 				routerBack: router.back,
 				routerPush: router.push,
+				contestList,
 			}
 		},
 	})
